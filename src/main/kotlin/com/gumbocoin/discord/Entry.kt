@@ -9,6 +9,7 @@ import discord4j.core.`object`.util.Snowflake
 import discord4j.core.event.domain.message.MessageCreateEvent
 import reactor.core.publisher.Mono
 import reactor.util.function.Tuples
+import java.awt.Color
 import java.io.File
 import java.util.*
 
@@ -91,9 +92,14 @@ fun DiscordClient.applyCommands(commands :List<Command>):Mono<Void>{
                 command.run(context)
             }).onErrorResume { e ->
                 e.printStackTrace()
-                context
-                    .sendMessage("Error processing request\n*${e::class.java.simpleName} ${e.message}*")
-                    .then()
+
+                context.event.message.channel.flatMap { channel ->
+                    channel.createEmbed { spec ->
+                        spec.setColor(Color.RED)
+                        spec.setTitle("Internal error : ${e::class.java.simpleName}")
+                        spec.setDescription(e.message ?: "")
+                    }
+                }.then()
             }
         }
         .then()

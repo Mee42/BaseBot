@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db1ab609-7160-42da-b6d7-3528e17a2cf0" name="Default Changelist" comment="" />
+    <list default="true" id="db1ab609-7160-42da-b6d7-3528e17a2cf0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/gumbocoin/discord/Entry.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/gumbocoin/discord/Entry.kt" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -26,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/gumbocoin/discord/Entry.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="118" column="9" lean-forward="true" selection-start-line="118" selection-start-column="9" selection-end-line="118" selection-end-column="9" />
+            <state relative-caret-position="733">
+              <caret line="115" column="59" selection-start-line="115" selection-start-column="59" selection-end-line="115" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -293,12 +295,12 @@
       <updated>1560557209737</updated>
       <workItem from="1560557214833" duration="5832000" />
       <workItem from="1560609563845" duration="9581000" />
-      <workItem from="1561477648317" duration="265000" />
+      <workItem from="1561477648317" duration="1292000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15678000" />
+    <option name="totallyTimeSpent" value="16705000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1696" y="36" width="1888" height="1148" extended-state="0" />
@@ -318,7 +320,7 @@
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="bottom" id="Build" order="6" weight="0.3297975" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3297975" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3297975" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
@@ -516,8 +518,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/gumbocoin/discord/Entry.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="118" column="9" lean-forward="true" selection-start-line="118" selection-start-column="9" selection-end-line="118" selection-end-column="9" />
+        <state relative-caret-position="733">
+          <caret line="115" column="59" selection-start-line="115" selection-start-column="59" selection-end-line="115" selection-end-column="59" />
         </state>
       </provider>
     </entry>
