@@ -74,7 +74,7 @@ fun DiscordClient.applyCommands(commands :List<Command>):Mono<Void>{
         .map { Tuples.of(it.t1,it.t2,it.t3.get()) }
         .filter { it.t1.member.isPresent }
         .map { (event,prefix,command) ->
-            Tuples.of(event,prefix,command, getPermissionLevelForUser(event.member.get()))
+            Tuples.of(event,prefix,command, getPermissionLevelForUser(event.member))
         }
         .flatMap { tuple ->
             tuple.t4.map { four -> Tuples.of(tuple.t1,tuple.t2,tuple.t3,four) } }
@@ -104,15 +104,21 @@ fun DiscordClient.applyCommands(commands :List<Command>):Mono<Void>{
 
 
 
-fun getPermissionLevelForUser(member: Member):Mono<PermissionLevel> = member
-    .isAdmin()
-    .map { Tuples.of(it,Config.isMasterAdmin.isMasterAdmin(member)) }
-    .flatMap { it.t2.map { two -> Tuples.of(it.t1,two) } }
-    .map { (isAdmin,isMasterAdmin) -> when {
-        isMasterAdmin -> PermissionLevel.MASTER_ADMIN
-        isAdmin -> PermissionLevel.LOCAL_ADMIN
-        else -> PermissionLevel.ANY
-    } }
+fun getPermissionLevelForUser(memberOp: Optional<Member>):Mono<PermissionLevel> {
+
+    return memberOp.map {member ->
+        member.isAdmin()
+        .map { Tuples.of(it, Config.isMasterAdmin.isMasterAdmin(member)) }
+        .flatMap { it.t2.map { two -> Tuples.of(it.t1, two) } }
+        .map { (isAdmin, isMasterAdmin) ->
+            when {
+                isMasterAdmin -> PermissionLevel.MASTER_ADMIN
+                isAdmin -> PermissionLevel.LOCAL_ADMIN
+                else -> PermissionLevel.ANY
+            }
+        }
+    }.orElse(Mono.just(PermissionLevel.ANY))
+}
 
 fun Member.isAdmin(): Mono<Boolean> = this.basePermissions.map { it.contains(Permission.ADMINISTRATOR) }
 
