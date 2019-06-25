@@ -72,7 +72,6 @@ fun DiscordClient.applyCommands(commands :List<Command>):Mono<Void>{
         }
         .filter { it.t3.isPresent }
         .map { Tuples.of(it.t1,it.t2,it.t3.get()) }
-        .filter { it.t1.member.isPresent }
         .map { (event,prefix,command) ->
             Tuples.of(event,prefix,command, getPermissionLevelForUser(event.member))
         }
